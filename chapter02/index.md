@@ -18,7 +18,7 @@
 ; Hello Lisp
 ```
 
-## トップレベル定義
+## トップレベル変数の定義
 
 いわゆるグローバル変数。`defparameter`関数で作る。
 
@@ -56,13 +56,13 @@
 
 ## 関数
 
-`defun`関数を使う。
+関数定義には`defun`関数を使う。
 
 ```lisp
 (defun function_name (arg))
 ```
 
-渡された文字列に`!!!`をつけて返す関数。文字列の結合は`concatenate`で行う。
+渡された文字列に`!!!`をつけて返す関数。文字列の結合は`concatenate`関数で行う。
 
 ```lisp
 (defun test_func (arg)
@@ -105,7 +105,7 @@
 ; 22
 ```
 
-smaller関数の定義。
+`smaller`関数の定義。
 
 ```lisp
 (defparameter *small* 1)
@@ -124,7 +124,7 @@ smaller関数の定義。
 ; 25
 ```
 
-`(1- (guess-my-number))`で`50`から`1`引いた数をbigグローバル変数に格納する(setf関数)。続けて`guess-my-number`を呼び出し、`1 + 50`の1ビット右シフトが行われ、25が出力される。
+`(1- (guess-my-number))`で`50`から`1`引いた数を`*big*`に格納する(`setf`関数)。続けて`guess-my-number`を呼び出し、`1 + 50`の1ビット右シフトが行われ、`25`が出力される。
 
 `bigger`はその反対。
 
@@ -155,3 +155,81 @@ smaller関数の定義。
 (print (smaller))
 ; 31
 ```
+
+トップレベル変数をリセットする関数を作成
+
+```lisp
+(defun start_over()
+  (defparameter *small* 1)
+  (defparameter *big* 100)
+  (guess-my-number)
+)
+
+(print
+  (start_over)
+)
+```
+
+## ローカル変数の定義
+
+`let`を使う。変数宣言部全体を`()`で囲う。変数名を値のセットも`()`で囲う。
+
+```lisp
+(let
+  ((a 1))
+  (print a)
+  ; 1
+)
+
+(print a)
+; variable A has no value
+```
+
+```lisp
+(let
+  ((a 2)(b 10))
+  (print (* a b))
+  ; 20
+)
+```
+
+## ローカル関数の定義
+
+`flet`を使う。下記は与えられた値に100を足して返す`f`関数。
+
+```lisp
+(flet
+  ((f (n) (+ n 10)))
+  (print (f 100))
+  ; 110
+)
+```
+
+```lisp
+(flet
+  ((f (n) (+ n 10)))
+)
+
+(print
+  (f 10)
+  ; undefined function F
+)
+```
+
+## `labels`関数
+
+同じローカル関数内で、関数を呼び出すときに使用。
+
+`g`を呼び出すと、`(f n)`足す`6`が実行。`f`が呼ばれ、`10`足す`10`が返る。`20`足す`6`が返る。
+
+```lisp
+(labels
+  (
+    (f (n) (+ n 10))
+    (g (n) (+ (f n) 6))
+  )
+  (print (g 10))
+  ; 26
+)
+```
+

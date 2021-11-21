@@ -47,7 +47,6 @@
   (guess-my-number)
 )
 ; 6
-|#
 
 (defparameter *small* 1)
 (defparameter *big* 100)
@@ -74,3 +73,45 @@
 
 (print (smaller))
 ; 31
+
+(defun start_over()
+  (defparameter *small* 1)
+  (defparameter *big* 100)
+  (guess-my-number)
+)
+
+(print
+  (start_over)
+)
+
+(let
+  ((a 1))
+  (print a)
+)
+
+(print a)
+
+(let
+  ((a 2)(b 10))
+  (print (* a b))
+  ; 20
+)
+
+(flet
+  ((f (n) (+ n 10)))
+)
+
+(print
+  (f 10)
+  ; undefined function F
+)
+|#
+
+(labels
+  (
+    (f (n) (+ n 10))
+    (g (n) (+ (f n) 6))
+  )
+  (print (g 10))
+  ; 26
+)
