@@ -90,7 +90,7 @@
 ; undefined function F
 
 (labels
-  ((f (n) (+ n 10))
+  ( (f (n) (+ n 10))
     (g (n) (+ (f n) 6)))
   (print (g 10)))
 ; 26
