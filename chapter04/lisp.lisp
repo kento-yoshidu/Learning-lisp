@@ -1,34 +1,31 @@
-"""
+;;; if文
+
+#|
 (print (
   if '()
     'i-am-true
-    'i-am-false
-))
+    'i-am-false))
 ; I-AM-FALSE
 
 (print (
   if '(1)
     'i-am-true
-    'i-am-false
-))
+    'i-am-false))
 ; I-AM-TRUE
 
 (print (
   if '(nil)
     'i-am-true
-    'i-am-false
-))
+    'i-am-false))
 ; I-AM-TRUE
 
 (defun my-length (list)
   (if list
-    (1+ (my-length (cdr list)))
-    0)
-)
+    (1+ ( my-length (cdr list)))
+    0))
 
-(print (
-  my-length '(list with four symbols)
-))
+(print
+  ( my-length '(list with four symbols)))
 ; 4
 
 (print (eq '() nil)) ;T
@@ -38,34 +35,38 @@
 (print 
   (if (= (+ 1 2) 3)
     'yup
-    'nope
-  )
-)
+    'nope))
 ; YUP
 
 (print
   (if (= (+ 1 2) 4)
     'yup
-    'nope
-  )
-)
+    'nope))
 ; NOPE
-"""
 
-(
-  let ((a 1))
+(let ((a 1))
   (if a
     (print a)
-    (print 'empty)
-  )
-)
+    (print 'empty)))
 ; 1
 
-(
-  let ((list '()))
+(let ((list '()))
   (if list
     (print list)
-    (print 'empty))
-)
+    (print 'empty)))
 ; EMPTY
 
+(let ((a 7)) 
+  (if (= (rem a 2) 0)
+    (print 'even)
+    (print 'odd)))
+; ODD
+
+(defvar *number-was-odd* nil)
+
+(if (oddp 7)
+  (progn (setf *number-was-odd* t)
+    'odd-number)
+  'even-number)
+
+(print *number-was-odd*)
