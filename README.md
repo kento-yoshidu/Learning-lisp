@@ -11,3 +11,7 @@
 ## メモ
 
 `clisp lisp.lisp`で実行する。
+
+どうインデントをつけたらいいのか分からない。
+
+[kyotolisp#1 LT3 美しいLispの書き方 (1)](https://www.slideshare.net/hayato_hashimoto/lisp-1-12901654)
