@@ -102,3 +102,68 @@
 
 (print *number-was-odd*)
 ```
+
+## when
+
+`when`なら条件式が真のとき、複数の処理を行える。偽の時の処理は指定でいきない(`nil`が返る)。
+
+```lisp
+(when (oddp 5)
+  (print "that is odd"))
+; "that is odd"
+; "Bye."
+
+(when (oddp 6)
+  (print "that is odd")
+  (print "Bye.")
+)
+; 何も表示されない
+```
+
+## unless
+
+`when`の逆。
+
+```lisp
+(unless (oddp 5)
+  (print "that is not odd")
+  (print "Bye.")
+)
+; 何も表示されない
+
+(unless (oddp 6)
+  (print "that is not odd")
+  (print "Bye.")
+)
+; "that is not odd"
+; "Bye."
+```
+
+## cond
+
+```lisp
+(defun FizzBuzz(number)
+  (cond
+    ((= (rem number 15) 0)
+      (print "FizzBuzz"))
+    ((= (rem number 3) 0)
+      (print "Fizz"))
+    ((= (rem number 5) 0)
+      (print "Buzz"))
+    (t 
+      (print number)
+    )
+  )
+)
+
+(FizzBuzz '15 )
+; FizzBuzz
+(FizzBuzz '3)
+; Fizz
+(FizzBuzz '6)
+; Fizz
+(FizzBuzz '10)
+; Buzz
+(FizzBuzz '11)
+; 何も出力されない
+```
