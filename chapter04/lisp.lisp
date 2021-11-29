@@ -70,3 +70,71 @@
   'even-number)
 
 (print *number-was-odd*)
+
+;; when
+
+(when (oddp 5)
+  (print that is odd)
+  (print Bye.)
+)
+
+(when (oddp 6)
+  ;(print that is odd)
+  ;(print Bye.)
+)
+
+;; unless
+
+(unless (oddp 5)
+  (print that is not odd)
+  (print Bye.))
+
+(unless (oddp 6)
+  (print that is not odd)
+  (print Bye.))
+
+;; cond
+
+(defun FizzBuzz(number)
+  (cond
+    ((= (rem number 15) 0)
+      (print FizzBuzz))
+    ((= (rem number 3) 0)
+      (print Fizz))
+    ((= (rem number 5) 0)
+      (print Buzz))
+    (t 
+      (print number))))
+
+(FizzBuzz '15 )
+; FizzBuzz
+(FizzBuzz '3)
+; Fizz
+(FizzBuzz '6)
+; Fizz
+(FizzBuzz '10)
+; Buzz
+(FizzBuzz '11)
+; 11
+
+;; case
+
+(defun FizzBuzz(number)
+  (case (rem number 15)
+    (0
+      FizzBuzz)
+    (3
+      Fizz)
+    (5
+      Buzz)
+    (t
+      number)))
+
+( print( FizzBuzz 15))
+; FizzBuzz
+( print( FizzBuzz 3))
+; Fizz
+( print( FizzBuzz 5))
+; Buzz
+( print( FizzBuzz 11))
+; 11
