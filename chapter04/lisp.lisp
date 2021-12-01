@@ -138,3 +138,116 @@
 ; Buzz
 ( print( FizzBuzz 11))
 ; 11
+
+;; andとor
+
+(print
+  (and (oddp 5) (oddp 7) (oddp 9)))
+; T
+
+(print
+  (and (oddp 5) (oddp 7) (oddp 10)))
+; NIL
+
+(print
+  (or (oddp 5) (oddp 7) (oddp 10)))
+; T
+
+;;; member関数
+
+(print
+  (member 4 '(3 4 5 6)))
+; (4 5 6)
+
+(print
+  (member 1 '(3 4 5 6)))
+; NIL
+
+(print
+  (find-if #'oddp '(2 4 5 6)))
+; 5
+
+(print
+  (find-if #'oddp '(2 4 6 8)))
+; NIL
+
+(print
+  (if (find-if #'oddp '(2 3 4 5))
+    "There is odd number"
+    "There is no odd number"))
+; "There is odd number"
+
+(print
+  (if (find-if #'oddp '(2 4 6 8))
+    "There is odd number"
+    "There is no odd number"))
+; "There is no odd number"
+
+;; 比較関数
+
+(defparameter *fruit* 'apple)
+
+(cond
+  ((eq *fruit* 'apple)
+    (print "This is an aplle"))
+  ((eq *fruit* 'orange)
+    (print "This is a orange")))
+; This is an apple
+
+(print 
+  (eq 3.0 3.0))
+; NIL
+
+(print
+  (equal (list 1 2 3) (list 1 2 3)))
+; T
+
+(print
+  (equal (list 1 2 3) (list 1 2)))
+; NIL
+
+(print
+  (equal '(1 2 3) (cons 1 (cons 2 (cons 3 ())))))
+; T
+
+(print (equal 'apple 'apple))
+; T
+
+(print
+  (eq 3.4 3.4))
+; NIL
+
+(print
+  (eql 3.4 3.4))
+; T
+
+; 文字も比較できる?
+(print
+  (eq #\a #\a))
+; T
+
+(print
+  (eql #\a #\a))
+; T
+
+; リストは比較できない
+(print
+  (eql (list 1 2 3) (list 1 2 3)))
+; NIL  
+
+(print
+  (equal "Apple" "apple"))
+; NIL
+
+(print
+  (equalp "Apple" "apple"))
+
+(print
+  (equal 1 1.0))
+; NIL
+
+(print
+  (equalp 1 1.0))
+; T
+
+|#

@@ -167,3 +167,133 @@
 (FizzBuzz '11)
 ; 何も出力されない
 ```
+
+## andとor
+
+```lisp
+(print
+  (and (oddp 5) (oddp 7) (oddp 9)))
+; T
+
+(print
+  (and (oddp 5) (oddp 7) (oddp 10)))
+; NIL
+
+(print
+  (or (oddp 5) (oddp 7) (oddp 10)))
+; T
+```
+
+### member関数
+
+リストの中に指定の値が含まれているかを判定。含まれていればその値を先頭にしたリスト、含まれていなければ`nil`を返す。
+
+```lisp
+(print
+  (member 4 '(3 4 5 6)))
+; (4 5 6)
+
+(print
+  (member 1 '(3 4 5 6)))
+; NIL
+```
+
+### find-if関数
+
+第一引数に関数、第二引数にリストを与える。関数が真を返すまで走査する。なければ偽を返す。
+
+```lisp
+(print
+  (find-if #'oddp '(2 4 5 6)))
+; 5
+
+(print
+  (find-if #'oddp '(2 4 6 8)))
+; NIL
+```
+
+## 比較関数
+
+シンボル同士を比較するときは、`eq`を使う。
+
+```lisp
+(defparameter *fruit* 'apple)
+
+(cond
+  ((eq *fruit* 'apple)
+    (print "This is an aplle"))
+  ((eq *fruit* 'orange)
+    (print "This is a orange")))
+; This is an apple
+
+; 例えば数値同士ならnilが返る。
+(print 
+  (eq 3.0 3.0))
+; NIL
+```
+
+シンボル同士でなければ`equal`を使う。
+
+```lisp
+(print
+  (equal (list 1 2 3) (list 1 2 3)))
+; T
+
+(print
+  (equal (list 1 2 3) (list 1 2)))
+; NIL
+
+(print
+  (equal '(1 2 3) (cons 1 (cons 2 (cons 3 ())))))
+; T
+
+; シンボル同士の比較もできる
+(print (equal 'apple 'apple))
+; T
+```
+
+`eql`は`eq`と似ているが、数値や文字の比較ができる。
+
+```lisp
+(print
+  (eq 3.4 3.4))
+; NIL
+
+(print
+  (eql 3.4 3.4))
+; T
+
+; 文字も比較できる?
+(print
+  (eq #\a #\a))
+; T
+
+(print
+  (eql #\a #\a))
+; T
+
+; リストは比較できない
+(print
+  (eql (list 1 2 3) (list 1 2 3)))
+; NIL  
+```
+
+`equalp`は大文字小文字や整数と浮動小数点数を比較できたりする。
+
+```lisp
+(print
+  (equal "Apple" "apple"))
+; NIL
+
+(print
+  (equalp "Apple" "apple"))
+
+(print
+  (equal 1 1.0))
+; NIL
+
+(print
+  (equalp 1 1.0))
+; T
+
+|#
