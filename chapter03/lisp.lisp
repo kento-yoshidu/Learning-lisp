@@ -22,9 +22,8 @@
 ; 0.6666667
 
 (print (+
-    (+(/ 4 6) (/ 1 6))
-    1
-))
+  (+(/ 4 6) (/ 1 6))
+  1))
 
 ;;;;;;;;;;;;;;;;;;
 
@@ -34,9 +33,7 @@
 (print
   (expt
     (+ 2 2)
-    (+ 4 4)
-  )
-)
+    (+ 4 4)))
 ; 65536
 
 
@@ -56,53 +53,42 @@
 (print
   (cons
     '("Hello World")
-    '("Let\'s Learning Lisp")
-  )
-)
+    '("Let\'s Learning Lisp")))
 
 (print
-  (car '(pork beef chicken))
-)
+  (car '(pork beef chicken)))
 ; pork
 
 (print
-  (cdr '(pork beef chicken))
-)
+  (cdr '(pork beef chicken)))
 ; (BEEF CHICKEN)
 
 ;;;;;;;;;;;;;;;;;;
 
 (print
   (car
-    (cdr '(pork beef chicken))
-  )
-)
+    (cdr '(pork beef chicken))))
 ; BEEF
 
 
 (print
-  (cadr '(pork beef chicken))
-)
+  (cadr '(pork beef chicken)))
 ; BEEF
 
 ;;;;;;;;;;;;;;;;;;
 
 (print
-  (list 'pork 'beef 'chicken)
-)
+  (list 'pork 'beef 'chicken))
 ; (PORK BEEF CHICKEN)
 
 (print
   (list 'pork
-    (list 'beef 'chicken)
-  )
-)
+    (list 'beef 'chicken)))
 ; (PORK (BEEF CHICKEN))
 
 ;;;;;;;;;;;;;;;;;;
 
 |#
-
 
 (print (car '(pork (beef chicken) cat)))
 ; PORK
