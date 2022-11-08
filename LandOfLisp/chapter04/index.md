@@ -8,22 +8,19 @@
 (print (
   if '()
     'i-am-true
-    'i-am-false
-))
+    'i-am-false))
 ; I-AM-FALSE
 
 (print (
   if '(1)
     'i-am-true
-    'i-am-false
-))
+    'i-am-false))
 ; I-AM-TRUE
 
 (print (
   if '(nil)
     'i-am-true
-    'i-am-false
-))
+    'i-am-false))
 ; I-AM-TRUE
 ```
 
@@ -42,17 +39,13 @@
 (print 
   (if (= (+ 1 2) 3)
     'yup
-    'nope
-  )
-)
+    'nope))
 ; YUP
 
 (print
   (if (= (+ 1 2) 4)
     'yup
-    'nope
-  )
-)
+    'nope))
 ; NOPE
 ```
 
@@ -61,9 +54,7 @@
   let ((a 7)) 
   (if (= (rem a 2) 0)
     (print 'even)
-    (print 'odd)
-  )
-)
+    (print 'odd)))
 ; ODD
 ```
 
@@ -74,18 +65,15 @@
   let ((a 1))
   (if a
     (print a)
-    (print 'empty)
-  )
-)
-; 1
+    (print 'empty)))
+    ; 1
 
 (
   let ((list '()))
   (if list
     (print list)
-    (print 'empty))
-)
-; EMPTY
+    (print 'empty)))
+    ; EMPTY
 ```
 
 
@@ -97,8 +85,7 @@
 (if (oddp 7)
   (progn (setf *number-was-odd* t)
     'odd-number)
-  'even-number
-)
+  'even-number)
 
 (print *number-was-odd*)
 ```
@@ -115,8 +102,7 @@
 
 (when (oddp 6)
   (print "that is odd")
-  (print "Bye.")
-)
+  (print "Bye."))
 ; 何も表示されない
 ```
 
@@ -127,14 +113,12 @@
 ```lisp
 (unless (oddp 5)
   (print "that is not odd")
-  (print "Bye.")
-)
+  (print "Bye."))
 ; 何も表示されない
 
 (unless (oddp 6)
   (print "that is not odd")
-  (print "Bye.")
-)
+  (print "Bye."))
 ; "that is not odd"
 ; "Bye."
 ```
@@ -151,10 +135,7 @@
     ((= (rem number 5) 0)
       (print "Buzz"))
     (t 
-      (print number)
-    )
-  )
-)
+      (print number))))
 
 (FizzBuzz '15 )
 ; FizzBuzz
@@ -297,3 +278,4 @@
 ; T
 
 |#
+```

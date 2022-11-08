@@ -54,9 +54,7 @@
 (print
   (+
     (+(/ 4 6) (/ 1 6))
-    (1)
-  )
-)
+    (1)))
 ; 11/6
 ```
 
@@ -81,9 +79,7 @@
 (print
   (expt
     (+ 2 2)
-    (+ 4 4)
-  )
-)
+    (+ 4 4)))
 ; 65536
 ```
 
@@ -124,8 +120,7 @@ Lispのリストは、**コンスセル**でつなぎ合わさっている。2�
 
 ```lisp
 (print
-  (car '(pork beef chicken))
-)
+  (car '(pork beef chicken)))
 ; pork
 ```
 
@@ -135,8 +130,7 @@ Lispのリストは、**コンスセル**でつなぎ合わさっている。2�
 
 ```lisp
 (print
-  (cdr '(pork beef chicken))
-)
+  (cdr '(pork beef chicken)))
 ; (BEEF CHICKEN)
 ```
 
@@ -145,9 +139,7 @@ Lispのリストは、**コンスセル**でつなぎ合わさっている。2�
 ```lisp
 (print
   (car
-    (cdr '(pork beef chicken))
-  )
-)
+    (cdr '(pork beef chicken))))
 ; BEEF
 ```
 
@@ -155,8 +147,7 @@ Lispのリストは、**コンスセル**でつなぎ合わさっている。2�
 
 ```lisp
 (print
-  (cadr '(pork beef chicken))
-)
+  (cadr '(pork beef chicken)))
 ; BEEF
 ```
 
@@ -166,15 +157,12 @@ Lispのリストは、**コンスセル**でつなぎ合わさっている。2�
 
 ```lisp
 (print
-  (list 'pork 'beef 'chicken)
-)
+  (list 'pork 'beef 'chicken))
 ; (PORK BEEF CHICKEN)
 
 (print
   (list 'pork
-    (list 'beef 'chicken)
-  )
-)
+    (list 'beef 'chicken)))
 ; (PORK (BEEF CHICKEN))
 ```
 

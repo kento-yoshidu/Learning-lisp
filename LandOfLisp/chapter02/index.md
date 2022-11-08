@@ -73,9 +73,7 @@
 ```lisp
 (defun test_func (arg)
   (print
-    (concatenate 'string arg "!!!")
-  )
-)
+    (concatenate 'string arg "!!!")))
 
 (test_func "Hello World")
 ; "Hello World!!!"
@@ -88,12 +86,10 @@
 (defparameter *big* 10)
 
 (defun guess-my-number ()
-  (ash (+ *small* *big*) -1)
-)
+  (ash (+ *small* *big*) -1))
 
 (print
-  (guess-my-number)
-)
+  (guess-my-number))
 ; 6
 ```
 
@@ -101,13 +97,11 @@
 
 ```lisp
 (print
-  (ash 11 -1)
-)
+  (ash 11 -1))
 ; 5
 
 (print
-  (ash 11 1)
-)
+  (ash 11 1))
 ; 22
 ```
 
@@ -118,13 +112,11 @@
 (defparameter *big* 10)
 
 (defun guess-my-number ()
-  (ash (+ *small* *big*) -1)
-)
+  (ash (+ *small* *big*) -1))
 
 (defun smaller ()
   (setf *big* (1- (guess-my-number)))
-  (guess-my-number)
-)
+  (guess-my-number))
 
 (print (smaller))
 ; 25
@@ -139,18 +131,15 @@
 (defparameter *big* 100)
 
 (defun guess-my-number ()
-  (ash (+ *small* *big*) -1)
-)
+  (ash (+ *small* *big*) -1))
 
 (defun smaller ()
   (setf *big* (1- (guess-my-number)))
-  (guess-my-number)
-)
+  (guess-my-number))
 
 (defun bigger ()
   (setf *small* (1+ (guess-my-number)))
-  (guess-my-number)
-)
+  (guess-my-number))
 
 (print (smaller))
 ; 25
@@ -168,12 +157,10 @@
 (defun start_over()
   (defparameter *small* 1)
   (defparameter *big* 100)
-  (guess-my-number)
-)
+  (guess-my-number))
 
 (print
-  (start_over)
-)
+  (start_over))
 ```
 
 ## ローカル変数の定義
@@ -183,9 +170,8 @@
 ```lisp
 (let
   ((a 1))
-  (print a)
+  (print a))
   ; 1
-)
 
 (print a)
 ; variable A has no value
@@ -194,9 +180,8 @@
 ```lisp
 (let
   ((a 2)(b 10))
-  (print (* a b))
+  (print (* a b)))
   ; 20
-)
 ```
 
 ## ローカル関数の定義
@@ -206,20 +191,17 @@
 ```lisp
 (flet
   ((f (n) (+ n 10)))
-  (print (f 100))
+  (print (f 100)))
   ; 110
-)
 ```
 
 ```lisp
 (flet
-  ((f (n) (+ n 10)))
-)
+  ((f (n) (+ n 10))))
 
 (print
-  (f 10)
+  (f 10))
   ; undefined function F
-)
 ```
 
 ## `labels`関数
@@ -232,10 +214,7 @@
 (labels
   (
     (f (n) (+ n 10))
-    (g (n) (+ (f n) 6))
-  )
-  (print (g 10))
+    (g (n) (+ (f n) 6)))
+  (print (g 10)))
   ; 26
-)
 ```
-
