@@ -41,5 +41,34 @@
 (defun guess-my-number ()
     (ash (+ *small* *big*) -1))
 
+; (print (guess-my-number))
+;=> 50
+
+; 1-で引数から1引いた数を返す
+(defun smaller ()
+    (setf *big* (1- (guess-my-number)))
+    (guess-my-number))
+
+; 1+は同じく
+(defun bigger ()
+    (setf *small* (1+ (guess-my-number)))
+    (guess-my-number))
+
 (print (guess-my-number))
 ;=> 50
+
+(print (smaller))
+;=> 25
+
+(print (bigger))
+;=> 37
+
+; グローバル変数をリセットする
+(defun start-over()
+    (defparameter *small* 1)
+    (defparameter *big* 100)
+    (guess-my-number))
+
+(start-over)
+(print *small*)
+(print *big*)
