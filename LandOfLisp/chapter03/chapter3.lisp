@@ -24,3 +24,22 @@
 ; データ シングルクオートでデータを表現する
 (print '(expt 2 3))
 ;=> (EXPT 2 3)
+
+; コンスセル
+; Lispのリストはコンスセルでつなぎ合わされている。
+
+'(1 2 3)
+; 3つのコンスセルで作られている数値と次のセル。最後はnilを指す。
+
+; cons
+; cons関数。2つのデータを連結する。
+
+; シンボルとシンボルの結合。一つのコンスセルを返す
+(print (cons 'Hello 'Lisp))
+;=> HELLO . LISP
+
+(print (cons 'I '(LOVE LISP)))
+;=> (I LOVE LISP)
+
+(print (cons 'I (cons 'LOVE (cons 'LISP ()))))
+;=> (I LOVE LISP)
