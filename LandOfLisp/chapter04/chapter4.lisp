@@ -56,3 +56,27 @@ NIL
         (1 / 0)))
 ;=> ODD
 
+(defvar *bool* nil)
+
+(if (oddp 5)
+    (progn (setf *bool* t) (print 'odd-number))
+    ;=> ODD-NUMBER
+    (print 'EVEN))
+
+(print *bool*)
+;=> T
+
+; when
+(defvar *num* 5)
+;=> numが奇数なら2倍にしてセット
+(when (oddp *num*)
+    (setf *num* (* *num* 2))
+    (print *num*))
+    ;=> 10
+
+;=> numが奇数ではないなら2で割ってセット
+(unless (oddp *num*)
+    (setf *num* (/ *num* 2))
+    (print *num*))
+    ;=> 5
+
