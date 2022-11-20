@@ -80,3 +80,32 @@ NIL
     (print *num*))
     ;=> 5
 
+#|
+(cond
+    (test1 then-case)
+    (test2 then-case)
+    (test3 then-case)
+    ...
+    (t else-case))
+|#
+
+(defvar *arch-enemy* nil)
+(defun pudding-eater (person)
+    (cond ((eq person 'henry) (setf *arch-enemy* 'stupid-lisp-alien)
+                                '(curse you lisp alien - you ate my pudding))
+          ((eq person 'johnny) (setf *arch-enemy* 'unless-old-jonny)
+                                '(i hope you choked on my pudding johnny))
+            (T                    '(why you eat my pudding stranger?))))
+
+(print (pudding-eater 'johnny))
+(print *arch-enemy*)
+(print (pudding-eater 'henry))
+(print *arch-enemy*)
+(print (pudding-eater 'kento))
+
+(defun test-cond (num)
+    (cond ((eq num '1) '("You're No.1") '("This is 1"))))
+
+(print (test-cond 1))
+
+;参考 http://wisdom.sakura.ne.jp/programming/lisp/clisp11.html
