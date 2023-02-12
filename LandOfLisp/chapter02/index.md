@@ -1,23 +1,3 @@
-## 標準出力
-
-### format
-
-`format`関数を使う。第一引数に`t`を指定し、標準出力へ出力する。
-
-```lisp
-(format t "Hello Lisp")
-; Hello Lisp
-```
-
-### print
-
-`print`関数を使う。
-
-```lisp
-(print "Hello Lisp")
-; Hello Lisp
-```
-
 ## トップレベル変数の定義
 
 いわゆるグローバル変数。`defparameter`関数で作る。
