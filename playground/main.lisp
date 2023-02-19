@@ -19,3 +19,24 @@
 
 ; 改行を出力する
 ; (print "Hello Lisp")(terpri)(print "Hello Lisp")
+
+; carはリストの最初の要素を返す
+(print (car '(1 2 3)))
+;=> 1
+
+; cdrはリストのcar以外をリストとして返す
+(print (cdr '(1 2 3)))
+;=> (2 3)
+
+; nilが返る
+(print (cdr '(1)))
+
+; cdrのcdrはcddr
+(print (cddr '(1 2 3)))
+;=> (3)
+
+; cdrのcdrのcarはcaddr
+(print (caddr '(1 2 3)))
+;=> 3
+
+(ql:quickload "usocket")

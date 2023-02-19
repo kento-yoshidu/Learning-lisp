@@ -13,3 +13,7 @@
 [お気楽 Common Lisp プログラミング入門](http://www.nct9.ne.jp/m_hiroi/clisp/index.html#abc)
 
 [kyotolisp#1 LT3 美しいLispの書き方 (1)](https://www.slideshare.net/hayato_hashimoto/lisp-1-12901654)
+
+### ライブラリー
+
+[モダンCommon Lisp: Quicklispによるライブラリ環境 | ありえるえりあ](http://dev.ariel-networks.com/wp/archives/365/)
