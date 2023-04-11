@@ -1,3 +1,15 @@
+;; 標準出力
+
+; write-line関数
+; 文字列をストリームに書き込む
+; 改行してエスケープコードを使用しない
+(write-line "Hello Lisp")
+(write-line "Hello Lisp")
+;=> Hello Lisp
+
+(write "Hello Lisp")
+(write "Hello Lisp")
+
 #|
 ; print関数
 ; 改行してから出力
@@ -6,7 +18,6 @@
 ; prin1関数
 ; 改行せずに出力
 (prin1 "Hello Lisp")
-|#
 
 ; princ関数
 ; printと違い、エスケープコードを使用しない（= ""で囲われない）
@@ -19,6 +30,8 @@
 
 ; 改行を出力する
 ; (print "Hello Lisp")(terpri)(print "Hello Lisp")
+
+; http://www.nct9.ne.jp/m_hiroi/clisp/abcl09.html
 
 ; carはリストの最初の要素を返す
 (print (car '(1 2 3)))
@@ -40,3 +53,4 @@
 ;=> 3
 
 (ql:quickload "usocket")
+|#
